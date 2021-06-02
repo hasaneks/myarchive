@@ -23,9 +23,7 @@
       bottom: 25px;
     }
 
-    .shortInformationArea{
-      opacity: 1;
-    }
+ 
 
     .title{
       font-size: 2rem;
@@ -63,16 +61,16 @@
   }
 
   .shortInformationArea {
-    opacity: 0;
-    transition: 300ms opacity;
+    display: block;;
 
     ul {
       list-style: none;
       li {
         float: left;
         margin-right: 25px;
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #fff;
+        margin-bottom: 25px;
         span {
           display: flex;
           align-items: center;
