@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import MovieCard from '../components/cards/movie'
 import styles from './index.module.css'
+import BookCard from '../components/cards/book'
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.movieCardArea}>
+      <div className={styles.movieCardArea}>
+        <MovieCard />
         <MovieCard />
         <MovieCard />
         <MovieCard />
@@ -18,7 +20,20 @@ export default function Home() {
         <MovieCard />
         <MovieCard />
         <MovieCard />
-      </main>
+        <MovieCard />
+      </div>
+
+      <div className={styles.movieCardArea}>
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+
+        <BookCard />
+        <BookCard />
+        <BookCard />
+        <BookCard />
+      </div>
     </div>
   )
 }
