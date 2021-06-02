@@ -1,0 +1,6 @@
+body {
+  --primary-color: 255, 255, 255;
+}
+body.dark-theme {
+  --primary-color: 0, 0, 0;
+}
