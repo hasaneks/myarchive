@@ -24,3 +24,7 @@ a {
 ul{
   list-style: none;
 }
+
+button,a{
+  cursor: pointer;
+}
