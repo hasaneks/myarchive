@@ -5,11 +5,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build-icon": "svgr icons -d components/icons --icon --replace-attr-values \"#000=currentColor\" --replace-attr-values \"#fff=currentColor\" "
   },
   "dependencies": {
     "next": "10.x",
     "react": "17.x",
     "react-dom": "17.x"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.5.0",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-nested": "^5.0.5",
+    "prettier": "^2.3.0"
   }
 }
