@@ -294,7 +294,7 @@ export default function Add() {
         </div>
         {formType && (
           <div className={styles.formArea}>
-            {formType === 'movie.js' ? <AddMovieForm requestUrl={"api/hello"}/> : <AddBookForm requestUrl={"api/book"}/>}
+            {formType === 'movie.js' ? <AddMovieForm requestUrl={"api/movie"}/> : <AddBookForm requestUrl={"api/book"}/>}
           </div>
         )}
       </div>

@@ -28,7 +28,7 @@ export default function AddMovieForm({ requestUrl }) {
   const onSubmit = async (data) => {
 
     try {
-      const res = await fetch('/api/hello', {
+      const res = await fetch(requestUrl, {
         body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json'
