@@ -1,0 +1,58 @@
+.headerContainer {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  z-index: 9;
+  -webkit-box-shadow: -3px 0px 11px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow: -3px 0px 11px 0px rgba(50, 50, 50, 0.5);
+  box-shadow: -3px 0px 11px 0px rgba(50, 50, 50, 0.5);
+}
+
+.headerArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logoArea {
+  height: 40px;
+  a {
+    background-color: transparent;
+    img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+.menuArea {
+  height: 100%;
+}
+
+.menu {
+  height: 100%;
+  ul {
+    height: 100%;
+    display: flex;
+
+    li {
+      transition: 300ms all;
+      min-width: 125px;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        height: 100%;
+      }
+      &:hover {
+        background-color: rgba(var(--primary-color));
+        color: rgb(var(--txt-light));
+      }
+    }
+  }
+}

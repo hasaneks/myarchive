@@ -2,34 +2,29 @@ import styles from './movie.module.css'
 import Link from 'next/link'
 import * as Icons from '../icons'
 
-export default function MovieCard() {
+export default function MovieCard({movieName,date,category,bannerUrl}) {
   return (
     <Link href={'#'}>
       <a className={styles.movieCard}>
         <div className={styles.bannerArea}>
           <img
-            src="https://tr.web.img4.acsta.net/pictures/bzp/01/27070.jpg"
-            alt="Yüzüklerin Efendisi"
+            src={bannerUrl}
+            alt={movieName}
           />
         </div>
 
         <div className={styles.informationArea}>
-          <p className={styles.title}>Yüzüklerin Efendisi</p>
+          <p className={styles.title}>{movieName}</p>
           <div className={styles.shortInformationArea}>
             <ul>
               <li>
                 <span>
-                  <Icons.Calendar /> 05 Ocak 2012
+                  <Icons.Calendar /> {date}
                 </span>
               </li>
               <li>
                 <span>
-                  <Icons.Watch /> 2:45
-                </span>
-              </li>
-              <li>
-                <span>
-                  <Icons.Category /> Aksiyon
+                  <Icons.Category /> {category}
                 </span>
               </li>
             </ul>

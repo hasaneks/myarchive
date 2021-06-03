@@ -3,8 +3,23 @@ import MovieCard from '../components/cards/movie'
 import styles from './index.module.css'
 import BookCard from '../components/cards/book'
 import MasterPage from '../components/global/masterPage'
+import cn from 'classnames'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
-export default function Home() {
+function Home() {
+  const [movies, setMovies] = useState(null)
+
+  useEffect(() => {
+    axios.get('/api/movie').then((response) => {
+      setMovies(response.data)
+      /* console.log(response.status)
+             console.log(response.statusText)
+             console.log(response.headers)
+             console.log(response.config) */
+    })
+  }, [])
+
   return (
     <MasterPage>
       <Head>
@@ -12,19 +27,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.movieCardArea}>
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+      <div className={cn('container', styles.movieCardArea)}>
+        {movies?.map((movie, index) => {
+          return (
+            <MovieCard
+              key={index}
+              movieName={movie.movieName}
+              category={movie.category}
+              date={movie.date}
+              bannerUrl={movie.bannerUrl}
+            />
+          )
+        })}
       </div>
 
-      <div className={styles.movieCardArea}>
+      <div className={cn('container', styles.movieCardArea)}>
         <BookCard />
         <BookCard />
         <BookCard />
@@ -38,3 +55,5 @@ export default function Home() {
     </MasterPage>
   )
 }
+
+export default Home
