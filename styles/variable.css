@@ -11,8 +11,3 @@ body {
   --default-radius: 10px;
 
 }
-body.dark-theme {
-  --txt-dark: 252, 250, 250;
-  --txt-light: 48, 48, 48;
-  --ff: 255,255,255;
-}

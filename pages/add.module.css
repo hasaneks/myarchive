@@ -1,0 +1,75 @@
+.pageArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.chooseFormTypeArea {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  label{
+    margin-bottom: 20px;
+
+    input{
+      margin-right: 10px;
+    }
+  }
+
+}
+
+.formTitle {
+  font-size: 2rem;
+  color: rgb(var(--primary-color));
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.formArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  button[type='submit'] {
+    background-color: rgb(var(--primary-color));
+    color: rgb(var(--txt-light));
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 10px 0;
+    font-size: 1.3rem;
+    border-radius: 10px;
+  }
+}
+
+.form {
+  label {
+    font-size: 0.8rem;
+    color: rgba(var(--txt-dark), 0.6);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(var(--txt-dark), 0.1);
+    &:focus {
+      border-color: rgba(var(--txt-dark), 0.6);
+    }
+  }
+
+  ul {
+    background-color: transparent;
+    li {
+      margin-bottom: 15px;
+
+      small {
+        font-size: 0.8rem;
+        color: orangered;
+      }
+    }
+  }
+}

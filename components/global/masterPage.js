@@ -15,6 +15,9 @@ function MasterPage({ children, isVisible = 'block' }) {
         //Favicon
         <meta name="theme-color" content="#05caac" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#05caac" />
+        {/*
+
+
         <link
           rel="apple-touch-icon-precomposed"
           sizes="57x57"
@@ -85,6 +88,7 @@ function MasterPage({ children, isVisible = 'block' }) {
           href="./favicon/favicon-128.png"
           sizes="128x128"
         />
+        */}
         <meta name="application-name" content="&nbsp;" />
         <meta name="msapplication-TileColor" content="#FFFFFF" />
         <meta

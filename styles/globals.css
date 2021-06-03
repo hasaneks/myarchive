@@ -21,10 +21,20 @@ a {
   text-decoration: none;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-button,a{
+button,
+a {
   cursor: pointer;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1340px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
