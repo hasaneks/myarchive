@@ -19,6 +19,8 @@
       font-weight: bold;
     }
   }
+
+
 }
 
 .bookImageArea {
@@ -83,6 +85,14 @@
           font-size: 1.2rem;
         }
       }
+    }
+  }
+}
+
+@media (--phone){
+  .bookCardArea{
+    &:last-child{
+      margin-bottom: 40px;
     }
   }
 }
