@@ -6,7 +6,8 @@ import MasterPage from '../components/global/masterPage'
 import cn from 'classnames'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
+import CategoryTitle from '../components/titles/category'
+import * as Icons from '../components/icons'
 function Home() {
   const [movies, setMovies] = useState(null)
   const [books, setBooks] = useState(null)
@@ -36,16 +37,23 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={cn('container', styles.movieCardArea)}>
-        {movies?.map((movie) => {
-          return <MovieCard key={movie._id} data={movie} />
-        })}
+      <div className={'container'}>
+        <CategoryTitle title={'İzlediklerim'} icon={<Icons.WebSite />} />
+        <div className={styles.movieCardArea}>
+          {movies?.map((movie) => {
+            return <MovieCard key={movie._id} data={movie} />
+          })}
+        </div>
       </div>
 
-      <div className={cn('container', styles.bookCardArea)}>
-        {books?.map((book) => {
-          return <BookCard key={book._id} data={book} />
-        })}
+      <div className={'container'}>
+        <CategoryTitle title={'Okuduklarım'} icon={<Icons.WebSite />} />
+
+        <div className={styles.bookCardArea}>
+          {books?.map((book) => {
+            return <BookCard key={book._id} data={book} />
+          })}
+        </div>
       </div>
     </MasterPage>
   )

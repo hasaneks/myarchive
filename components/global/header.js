@@ -32,8 +32,10 @@ export default function Header() {
           </nav>
         </div>
 
-        <div>
-          <Icons.Category />
+        <div className={styles.userBadgeArea}>
+          <span>
+            HE
+          </span>
         </div>
       </div>
     </header>

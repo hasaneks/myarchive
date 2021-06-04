@@ -4,8 +4,6 @@
   grid-column-gap: 25px;
   grid-row-gap: 25px;
   grid-template-rows: auto;
-  margin-top:50px;
-  margin-bottom:50px;
 }
 
 .bookCardArea {

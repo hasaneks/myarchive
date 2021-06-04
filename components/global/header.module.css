@@ -58,6 +58,17 @@
   }
 }
 
+.userBadgeArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(var(--primary-color));
+  color: rgb(var(--txt-light));
+  border-radius: 50%;
+}
+
 @media (--phone) {
   .menuArea {
     position: fixed;
@@ -65,5 +76,8 @@
     left: 0;
     height: 50px;
     background-color: #fff;
+    padding: 0;
+    width: 100vw;
+
   }
 }
