@@ -7,7 +7,7 @@ export default function MovieCard({data}) {
 
 
   return (
-    <Link href={`/movie/${convertSlug(data?.movieName)}-${data?.id}`}>
+    <Link href={`/movie/${convertSlug(data?.movieName)}-${data?._id}`}>
       <a className={styles.movieCard}>
         <div className={styles.bannerArea}>
           <img
