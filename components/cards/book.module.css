@@ -72,11 +72,12 @@
     column-count: 2;
     li {
       line-height: 30px;
+
       span {
         color: rgb(var(--txt-dark));
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         svg {
           margin-right: 10px;
           font-size: 1.2rem;
