@@ -2,6 +2,7 @@ import styles from './movie.module.css'
 import Link from 'next/link'
 import * as Icons from '../icons'
 import convertSlug from "slug"
+import cn from "classnames"
 
 export default function MovieCard({data}) {
 
@@ -22,7 +23,7 @@ export default function MovieCard({data}) {
             <ul>
               <li>
                 <span>
-                  <Icons.Calendar /> {data?.date}
+                  <Icons.Calendar /> {data?.date.split('T', 1)}
                 </span>
               </li>
               <li>
@@ -32,6 +33,12 @@ export default function MovieCard({data}) {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className={cn(styles.ratingArea, data?.rating <= 5 ? styles.badRating : styles.goodRating)}>
+          <span>
+            {data?.rating}
+          </span>
         </div>
 
         <span className={styles.gradient}></span>

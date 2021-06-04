@@ -9,7 +9,7 @@ export default function Header() {
     <header className={styles.headerContainer}>
       <div className={cn('container', styles.headerArea)}>
         <div className={styles.logoArea}>
-          <Link href="#">
+          <Link href="/">
             <a>
               <img src="/img/logo.png" alt="My Archive" />
             </a>
@@ -20,13 +20,13 @@ export default function Header() {
           <nav className={styles.menu}>
             <ul>
               <li>
-                <BaseButton href={'#'}>Arşivim</BaseButton>
+                <BaseButton href={'/'}>Arşivim</BaseButton>
               </li>
               <li>
-                <BaseButton href={'#'}>Ekle</BaseButton>
+                <BaseButton href={'/add'}>Ekle</BaseButton>
               </li>
               <li>
-                <BaseButton href={'#'}>Proje Hakkında</BaseButton>
+                <BaseButton href={'/about'}>Hakkında</BaseButton>
               </li>
             </ul>
           </nav>

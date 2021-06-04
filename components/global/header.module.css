@@ -49,10 +49,21 @@
         padding: 10px;
         height: 100%;
       }
+
       &:hover {
         background-color: rgba(var(--primary-color));
         color: rgb(var(--txt-light));
       }
     }
+  }
+}
+
+@media (--phone) {
+  .menuArea {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    background-color: #fff;
   }
 }

@@ -42,7 +42,7 @@ function Home() {
         })}
       </div>
 
-      <div className={cn('container', styles.movieCardArea)}>
+      <div className={cn('container', styles.bookCardArea)}>
         {books?.map((book) => {
           return <BookCard key={book._id} data={book} />
         })}
