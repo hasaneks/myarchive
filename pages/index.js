@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 
 function Home() {
   const [movies, setMovies] = useState(null)
+  const [books, setBooks] = useState(null)
 
   useEffect(() => {
     axios.get('/api/movie').then((response) => {
@@ -17,6 +18,14 @@ function Home() {
              console.log(response.statusText)
              console.log(response.headers)
              console.log(response.config) */
+    })
+
+    axios.get('/api/book').then((response) => {
+      setBooks(response.data)
+      /* console.log(response.status)
+                 console.log(response.statusText)
+                 console.log(response.headers)
+                 console.log(response.config) */
     })
   }, [])
 
@@ -28,29 +37,15 @@ function Home() {
       </Head>
 
       <div className={cn('container', styles.movieCardArea)}>
-        {movies?.map((movie, index) => {
-          return (
-            <MovieCard
-              key={index}
-              movieName={movie.movieName}
-              category={movie.category}
-              date={movie.date}
-              bannerUrl={movie.bannerUrl}
-            />
-          )
+        {movies?.map((movie) => {
+          return <MovieCard key={movie._id} data={movie} />
         })}
       </div>
 
       <div className={cn('container', styles.movieCardArea)}>
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
-
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
+        {books?.map((book) => {
+          return <BookCard key={book._id} data={book} />
+        })}
       </div>
     </MasterPage>
   )

@@ -95,9 +95,9 @@ export default function AddBookForm({requestUrl}) {
           <li>
             <label>Sayfa Sayısı</label>
             <input
-              {...register('numberOfPage')}
+              {...register('numberOfPages')}
               type={'number'}
-              name={'numberOfPage'}
+              name={'numberOfPages'}
               placeholder={'Sayfa Sayısı'}
               className={styles.input}
             />

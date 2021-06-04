@@ -11,7 +11,7 @@ export default function Header() {
         <div className={styles.logoArea}>
           <Link href="#">
             <a>
-              <img src="./img/logo.png" alt="My Archive" />
+              <img src="/img/logo.png" alt="My Archive" />
             </a>
           </Link>
         </div>

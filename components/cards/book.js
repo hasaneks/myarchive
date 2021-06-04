@@ -1,46 +1,47 @@
 import styles from './book.module.css'
 import * as Icons from '../icons'
 import Link from 'next/link'
+import convertSlug from "slug"
 
-export default function BookCard() {
+export default function BookCard({data}) {
   return (
-    <Link href={'#'}>
+    <Link href={`/book/${convertSlug(data?.bookName)}-${data?._id}`}>
       <a className={styles.bookCardArea}>
         <div className={styles.bookImageArea}>
           <img
-            src="https://i.dr.com.tr/cache/600x600-0/originals/0001789144001-1.jpg"
-            alt="Makine Olmak"
+            src={data?.bannerUrl}
+            alt={data?.bookName}
           />
         </div>
 
         <div className={styles.informationArea}>
-          <p className={styles.title}>Makine Olmak</p>
+          <p className={styles.title}>{data?.bookName}</p>
           <ul>
             <li>
               <span>
                 <Icons.Category />
-                Bilim-Kurgu
+                {data?.category}
               </span>
             </li>
 
             <li>
               <span>
                 <Icons.Category />
-                Bilim-Kurgu
+                {data?.numberOfPages}
               </span>
             </li>
 
             <li>
               <span>
                 <Icons.Category />
-                Bilim-Kurgu
+                {data?.date.split('T', 1)}
               </span>
             </li>
 
             <li>
               <span>
                 <Icons.Category />
-                Bilim-Kurgu
+                {data?.author}
               </span>
             </li>
           </ul>

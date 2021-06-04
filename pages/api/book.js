@@ -1,18 +1,31 @@
 import mongoMiddleware from '../../core/api/mongo-middleware'
 
 export default mongoMiddleware(async (req, res, connection, models) => {
-  const { query, body, method } = req
+  const { query:{id}, body, method } = req
 
   switch (method) {
     case 'GET':
-      models.Book.find()
-        .then((result) => {
-          res.status(200).json(result)
-        })
-        .catch((err) => {
-          console.log(err)
-          res.status(500)
-        })
+
+
+        if(id){
+          models.Book.findById(id)
+              .then((result) => {
+                res.status(200).json(result);
+              })
+              .catch((err) => {
+                res.status(404).json("Not found Book")
+              })
+        }
+        else{
+            models.Book.find()
+                .then((result) => {
+                    res.status(200).json(result)
+                })
+                .catch((err) => {
+                    console.log(err)
+                    res.status(500)
+                })
+        }
 
       break
     case 'POST':
