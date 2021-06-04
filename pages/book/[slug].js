@@ -46,7 +46,8 @@ const MovieDetail = () => {
               </li>
               <li>
                 <span>
-                  <Icons.Category /> {resData?.rating}
+                  <Icons.Category />
+                  {resData?.numberOfPages}
                 </span>
               </li>
             </ul>

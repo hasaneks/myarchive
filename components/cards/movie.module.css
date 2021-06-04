@@ -119,6 +119,15 @@
 @media (--phone) {
   .movieCard {
     height: 300px;
+
+    &:hover {
+      background-color: transparent;
+
+
+      .title {
+        font-size: 1.2rem;
+      }
+    }
   }
 
   .informationArea {

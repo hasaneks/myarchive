@@ -78,14 +78,14 @@
       border-radius: 0;
     }
 
-    &:after{
-      content: "";
+    &:after {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
-      background-color: rgba(var(--00),0.5);
+      background-color: rgba(var(--00), 0.5);
     }
   }
 
@@ -94,20 +94,25 @@
     color: #fff;
     align-self: flex-end;
 
-    h1{
+    h1 {
       font-size: 1.3rem;
     }
-    ul{
+    ul {
       column-count: 2;
-      li{
+      li {
         margin-left: 0;
-        span{
+        span {
           justify-content: flex-start;
           margin-bottom: 10px;
         }
       }
     }
+  }
+
+  .movieDescription {
+    margin-top: 25px;
+    margin-bottom: 50px;
 
   }
 
-  }
+}
