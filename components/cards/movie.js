@@ -1,20 +1,15 @@
 import styles from './movie.module.css'
 import Link from 'next/link'
 import * as Icons from '../icons'
-import convertSlug from "slug"
-import cn from "classnames"
+import convertSlug from 'slug'
+import cn from 'classnames'
 
-export default function MovieCard({data}) {
-
-
+export default function MovieCard({ data }) {
   return (
     <Link href={`/movie/${convertSlug(data?.movieName)}-${data?._id}`}>
       <a className={styles.movieCard}>
         <div className={styles.bannerArea}>
-          <img
-            src={data?.bannerUrl}
-            alt={data?.movieName}
-          />
+          <img src={data?.bannerUrl} alt={data?.movieName} />
         </div>
 
         <div className={styles.informationArea}>
@@ -35,10 +30,13 @@ export default function MovieCard({data}) {
           </div>
         </div>
 
-        <div className={cn(styles.ratingArea, data?.rating <= 5 ? styles.badRating : styles.goodRating)}>
-          <span>
-            {data?.rating}
-          </span>
+        <div
+          className={cn(
+            styles.ratingArea,
+            data?.rating <= 5 ? styles.badRating : styles.goodRating
+          )}
+        >
+          <span>{data?.rating}</span>
         </div>
 
         <span className={styles.gradient}></span>

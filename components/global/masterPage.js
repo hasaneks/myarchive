@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import React, { Fragment, useContext } from 'react'
+import React from 'react'
 import Header from './header'
 
-function MasterPage({ children, isVisible = 'block' }) {
+function MasterPage({ children }) {
   return (
     <>
       <Head>
@@ -10,11 +10,11 @@ function MasterPage({ children, isVisible = 'block' }) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <meta name="theme-color" content="#05caac" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#05caac" />
+        <meta name="theme-color" content="#FF9002" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#FF9002" />
         //Favicon
-        <meta name="theme-color" content="#05caac" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#05caac" />
+        <meta name="theme-color" content="#FF9002" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#FF9002" />
         {/*
 
 
@@ -89,7 +89,7 @@ function MasterPage({ children, isVisible = 'block' }) {
           sizes="128x128"
         />
         */}
-        <meta name="application-name" content="&nbsp;" />
+        <meta name="application-name" content="My Archive" />
         <meta name="msapplication-TileColor" content="#FFFFFF" />
         <meta
           name="msapplication-TileImage"
