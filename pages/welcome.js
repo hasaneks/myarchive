@@ -1,15 +1,28 @@
 import styles from './welcome.module.css'
-import { Checkbox, FormControlLabel, TextField } from '@material-ui/core'
 import BaseButton from '../components/buttons/base'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import AuthenticationContext from '../context/authentication'
+import TextInput from '../components/inputs/text'
 
 export default function Welcome() {
+  const authentication = useContext(AuthenticationContext)
+  const [errorMessage, setErrorMessage] = useState()
   const [backgroundImage, setBackgroundImage] = useState(null)
   let imageNumber = 0
 
-  const Login = (e) => {
-    e.preventDefault()
-    console.log(e)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm()
+
+  const onSubmit = (data) => {
+    const authenticationResult = authentication?.signIn(data)
+    console.log(authenticationResult)
+    if (!authenticationResult) {
+      setErrorMessage('Hatalı kullanıcı adı veya şifre girişi yaptınız.')
+    }
   }
 
   const backgroundImages = [
@@ -42,36 +55,35 @@ export default function Welcome() {
           <p>
             Okuduğun kitaplar ve izlediğin diziler hakkındaki tüm düşüncelerini
             paylaşmaya hazır mısın?
+
+            <b>iletisim@hasaneksi.net - Hasan123</b>
           </p>
         </div>
         <div className={styles.loginForm}>
-          <form onSubmit={(e) => Login(e)} noValidate autoComplete="off">
-            <TextField
-              required
-              id="standard-required"
-              label="E-posta Adresiniz"
-              placeholder={'E-posta'}
-              className={styles.input}
-            />
-
-            <TextField
-              required
-              type="password"
-              id="standard-required"
-              label="Şifreniz"
-              placeholder={'Şifre'}
-              className={styles.input}
-            />
-
-            <FormControlLabel
-              control={<Checkbox name="checkedA" />}
-              label="Beni Hatırla"
-              color={'#fff'}
-            />
-            <BaseButton type={'submit'} className={styles.loginButton}>
-              Giriş Yap
-            </BaseButton>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <ul>
+              <li>
+                <TextInput
+                  type="email"
+                  placeholder="Mail"
+                  {...register('mail', { required: true })}
+                />
+              </li>
+              <li>
+                <TextInput
+                  type="password"
+                  placeholder="Password"
+                  {...register('password', { required: true, max: 12, min: 3 })}
+                />
+              </li>
+              <li>
+                <BaseButton type={'submit'} className={styles.loginButton}>
+                  Giriş Yap
+                </BaseButton>
+              </li>
+            </ul>
           </form>
+          <span>{errorMessage}</span>
         </div>
       </div>
     </section>

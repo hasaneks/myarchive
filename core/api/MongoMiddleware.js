@@ -1,7 +1,6 @@
-import connectToMongo from './connect-to-mongo'
+import connectToMongo from './connectToMongoDb'
 
 const mongoMiddleware = (handler) => async (req, res) => {
-  console.log('Mongo Middleware Çalıştı')
   const { connection, models } = await connectToMongo()
   try {
     await handler(req, res, connection, models)

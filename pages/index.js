@@ -3,24 +3,23 @@ import MovieCard from '../components/cards/movie'
 import styles from './index.module.css'
 import BookCard from '../components/cards/book'
 import MasterPage from '../components/global/masterPage'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import CategoryTitle from '../components/titles/category'
 import * as Icons from '../components/icons'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { GetBooks, GetMovies } from '../redux/actions/getArchive'
-import {MOVIES_DATA} from "../redux/types";
-import {GetArchive} from "../redux/reducers/getArchive";
-function Home() {
-  const [movies, setMovies] = useState(null)
-  const [books, setBooks] = useState(null)
-  //
-  const dispatch = useDispatch()
-    const { booksData,moviesData } = useSelector((state) => state.GetArchive)
+import AuthenticationContext from '../context/authentication'
 
+function Home() {
+  const dispatch = useDispatch()
+  const { booksData, moviesData } = useSelector((state) => state.GetArchive)
+  const userState = useContext(AuthenticationContext)
 
   useEffect(() => {
-    dispatch(GetMovies())
-    dispatch(GetBooks())
+    if (userState?.isAuth()) {
+      dispatch(GetMovies())
+      dispatch(GetBooks())
+    }
   }, [])
 
   return (

@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 
-// we'll import all the schemas here and return them
-// on the mongo connection object
-// for use in the handlers
+
 import UserSchema from '../../data/models/User'
 import BookSchema from '../../data/models/Book'
 import MovieSchema from '../../data/models/Movie'
