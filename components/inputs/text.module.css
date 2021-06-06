@@ -1,0 +1,15 @@
+.baseText{
+  font-size: 1rem;
+  background-color: transparent;
+  padding:10px;
+  border-bottom: 1px solid rgba(var(--primary-color),0.5);
+  transition: 300ms all;
+
+  &:last-child{
+    margin-bottom: 15px;
+  }
+
+  &:focus{
+    border-bottom-color: rgba(var(--primary-color),1);
+  }
+}

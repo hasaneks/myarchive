@@ -1,8 +1,11 @@
-import { useState, Fragment } from 'react'
+import { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from '../../pages/add.module.css'
+import { useRouter } from 'next/router'
+import TextInput from "../inputs/text";
 
-export default function AddBookForm({requestUrl}) {
+export default function AddBookForm({ requestUrl }) {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -35,6 +38,10 @@ export default function AddBookForm({requestUrl}) {
         method: 'POST'
       })
 
+      if (res.status === 200) {
+        alert('Kitap Başarıyla Eklendi')
+        router.push('/')
+      }
     } catch (e) {
       console.log('Error!' + e)
     }
@@ -52,21 +59,19 @@ export default function AddBookForm({requestUrl}) {
         <ul>
           <li>
             <label>Kitap Adı</label>
-            <input
+            <TextInput
               {...register('bookName', { required: true })}
               placeholder={'Kitap Adı'}
-              className={styles.input}
             />
             <small>{errors.bookName && 'Lütfen Kitabın Adını Belirtin'}</small>
           </li>
 
           <li>
             <label>Kapak Fotoğrafı</label>
-            <input
+            <TextInput
               {...register('bannerUrl', { required: true })}
               type={'url'}
               placeholder={'Lütfen URL giriniz'}
-              className={styles.input}
             />
             <small>
               {errors.bannerUrl && 'Lütfen Geçerli Bir URL Adresi Belirtin.'}
@@ -75,11 +80,10 @@ export default function AddBookForm({requestUrl}) {
 
           <li>
             <label>Yazar Adı</label>
-            <input
+            <TextInput
               {...register('author')}
               name={'author'}
               placeholder={'Yazar Adı'}
-              className={styles.input}
             />
           </li>
 
@@ -87,29 +91,32 @@ export default function AddBookForm({requestUrl}) {
             <label>Kitap Kategorisi</label>
             <select {...register('category')}>
               {bookCategories.map((category) => {
-                return <option key={category} value={category}> {category}</option>
+                return (
+                  <option key={category} value={category}>
+                    {' '}
+                    {category}
+                  </option>
+                )
               })}
             </select>
           </li>
 
           <li>
             <label>Sayfa Sayısı</label>
-            <input
+            <TextInput
               {...register('numberOfPages')}
               type={'number'}
               name={'numberOfPages'}
               placeholder={'Sayfa Sayısı'}
-              className={styles.input}
             />
           </li>
 
           <li>
             <label>Ne Zaman Okudun?</label>
-            <input
+            <TextInput
               {...register('date', { required: true })}
               name={'date'}
               type="date"
-              className={styles.input}
               max={`${new Date().toISOString().split('T')[0]}`}
             />
             <small>{errors.date && 'Lütfen Geçerli Bir Tarih Seçiniz.'}</small>
@@ -117,7 +124,7 @@ export default function AddBookForm({requestUrl}) {
 
           <li>
             <label>10 üzerinden puanla!</label>
-            <input
+            <TextInput
               type="number"
               placeholder="Rating"
               {...register('rating', { max: 10, min: 1 })}
@@ -129,12 +136,10 @@ export default function AddBookForm({requestUrl}) {
 
           <li>
             <label>Düşüncelerini Not Almak İster Misin?</label>
-            <textarea
-              rows={4}
+            <TextInput
               name={'description'}
               {...register('description')}
               placeholder={'Kitap Hakkındaki Düşüncelerin Neler?'}
-              className={styles.input}
             />
           </li>
         </ul>

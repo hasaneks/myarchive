@@ -3,8 +3,13 @@ import Link from 'next/link'
 import cn from 'classnames'
 import BaseButton from '../buttons/base'
 import * as Icons from '../icons'
+import {useContext} from "react";
+import AuthenticationContext from "../../context/authentication";
 
 export default function Header() {
+
+  const {signOut} = useContext(AuthenticationContext)
+
   return (
     <header className={styles.headerContainer}>
       <div className={cn('container', styles.headerArea)}>
@@ -33,9 +38,10 @@ export default function Header() {
         </div>
 
         <div className={styles.userBadgeArea}>
-          <span>
-            HE
-          </span>
+          <BaseButton>HE</BaseButton>
+          <div className={styles.userInformation}>
+            <BaseButton onClick={()=> signOut()}>Çıkış Yap</BaseButton>
+          </div>
         </div>
       </div>
     </header>

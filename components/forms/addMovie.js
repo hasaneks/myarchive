@@ -1,9 +1,12 @@
 import { useState, Fragment } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from '../../pages/add.module.css'
-import axios from 'axios'
+import {useRouter} from "next/router";
+import TextInput from "../inputs/text";
 
 export default function AddMovieForm({ requestUrl }) {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -36,6 +39,11 @@ export default function AddMovieForm({ requestUrl }) {
         method: 'POST'
       })
 
+      if(res.status===200){
+        alert("Film & Dizi Başarıyla Eklendi")
+        router.push("/");
+      }
+
     } catch (e) {
       console.log('Error!' + e)
     }
@@ -53,7 +61,7 @@ export default function AddMovieForm({ requestUrl }) {
         <ul>
           <li>
             <label>Film Adı</label>
-            <input
+            <TextInput
               {...register('movieName', { required: true })}
               placeholder={'Film Adı'}
             />
@@ -62,7 +70,7 @@ export default function AddMovieForm({ requestUrl }) {
 
           <li>
             <label>Afiş Fotoğrafı</label>
-            <input
+            <TextInput
               {...register('bannerUrl', { required: true })}
               type={'url'}
               placeholder={'Lütfen URL giriniz'}
@@ -88,7 +96,7 @@ export default function AddMovieForm({ requestUrl }) {
 
           <li>
             <label>Ne Zaman İzledin?</label>
-            <input
+            <TextInput
               {...register('date', { required: true })}
               name={'date'}
               type="date"
@@ -99,7 +107,7 @@ export default function AddMovieForm({ requestUrl }) {
 
           <li>
             <label>10 üzerinden puanla!</label>
-            <input
+            <TextInput
               type="number"
               placeholder="Puanla"
               {...register('rating', { max: 10, min: 1 })}
@@ -111,8 +119,7 @@ export default function AddMovieForm({ requestUrl }) {
 
           <li>
             <label>Düşüncelerini Not Almak İster Misin?</label>
-            <textarea
-              rows={4}
+            <TextInput
               name={'description'}
               {...register('description')}
               placeholder={'Film Hakkındaki Düşüncelerin Neler?'}

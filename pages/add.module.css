@@ -10,14 +10,13 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  label{
+  label {
     margin-bottom: 20px;
 
-    input{
+    input {
       margin-right: 10px;
     }
   }
-
 }
 
 .formTitle {
@@ -53,12 +52,6 @@
   select,
   textarea {
     width: 100%;
-    padding: 10px;
-    background-color: transparent;
-    border-bottom: 1px solid rgba(var(--txt-dark), 0.1);
-    &:focus {
-      border-color: rgba(var(--txt-dark), 0.6);
-    }
   }
 
   ul {
