@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import styles from '../../pages/add.module.css'
 import { useRouter } from 'next/router'
 import TextInput from "../inputs/text";
+import {PAGE} from "../../constants/page";
 
 export default function AddBookForm({ requestUrl }) {
   const router = useRouter()
@@ -40,7 +41,7 @@ export default function AddBookForm({ requestUrl }) {
 
       if (res.status === 200) {
         alert('Kitap Başarıyla Eklendi')
-        router.push('/')
+        router.push(PAGE.home)
       }
     } catch (e) {
       console.log('Error!' + e)

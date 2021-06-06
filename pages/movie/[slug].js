@@ -5,6 +5,7 @@ import MasterPage from '../../components/global/masterPage'
 import styles from '../contentDetail.module.css'
 import cn from 'classnames'
 import * as Icons from '../../components/icons'
+import { API_URL } from '../../constants/api'
 
 const MovieDetail = () => {
   const [resData, setResData] = useState(null)
@@ -16,13 +17,8 @@ const MovieDetail = () => {
 
   useEffect(() => {
     if (id !== undefined) {
-      axios.get(`/api/movie?id=${id}`).then((response) => {
+      axios.get(`${API_URL.movie}?id=${id}`).then((response) => {
         setResData(response.data)
-        console.log(response.data)
-        /* console.log(response.status)
-                       console.log(response.statusText)
-                       console.log(response.headers)
-                       console.log(response.config) */
       })
     }
   }, [id])

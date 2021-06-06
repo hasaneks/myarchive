@@ -55,7 +55,6 @@ export default function Welcome() {
           <p>
             Okuduğun kitaplar ve izlediğin diziler hakkındaki tüm düşüncelerini
             paylaşmaya hazır mısın?
-
             <b>iletisim@hasaneksi.net - Hasan123</b>
           </p>
         </div>

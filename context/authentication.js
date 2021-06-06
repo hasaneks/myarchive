@@ -1,6 +1,7 @@
 import { createContext, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import storage from '../core/helper/storage'
+import { PAGE } from '../constants/page'
 
 const AuthenticationContext = createContext(null)
 
@@ -30,14 +31,14 @@ export const AuthenticationProvider = ({ children }) => {
     if (localStorageJwt) {
       user = userData.find((user) => user.jwt === localStorageJwt)
       if (user && router.pathname === '/welcome') {
-        router.push('/')
+        router.push(PAGE.home)
       } else if (user === undefined && router.pathname !== '/welcome') {
-        router.push('/welcome')
+        router.push(PAGE.login)
       } else {
         return user
       }
     } else {
-      router.push('/welcome')
+      router.push(PAGE.login)
     }
   }
 
@@ -47,7 +48,7 @@ export const AuthenticationProvider = ({ children }) => {
     )
     if (res) {
       storage.addLocalStorage('user-key', res.jwt)
-      router.push('/')
+      router.push(PAGE.home)
     } else {
       return false
     }
@@ -55,11 +56,11 @@ export const AuthenticationProvider = ({ children }) => {
 
   const signOut = () => {
     storage.removeLocalStorage('user-key')
-    router.push('/welcome')
+    router.push(PAGE.login)
   }
 
   return (
-    <AuthenticationContext.Provider value={{ isAuth, signIn,signOut }}>
+    <AuthenticationContext.Provider value={{ isAuth, signIn, signOut }}>
       {children}
     </AuthenticationContext.Provider>
   )
